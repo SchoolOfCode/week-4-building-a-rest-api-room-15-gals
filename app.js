@@ -31,3 +31,22 @@ app.get("/quotes", async function (req, res) {
 ////Write a request handler to return the correct response
 //perform the correct action when a GET request is received to /quotes.
 //Choose the appropriate helper function from quote.js to get your data.
+
+//Ticket 4 
+
+//Write a request handler to return the correct response and 
+// perform the correct action when a GET request is received to /quotes/:id, 
+// with a particular ID provided in the url.
+//  Choose the appropriate helper function from quote.js to get your data.
+
+// listen for a get request and response 
+// the route is /quotes/:id 
+// create a variable to store the correct function which gets the quote by id 
+//create a response that is the quote in JSON format 
+
+app.get("/quotes/:id", async function (req, res) {
+  const id = req.params.id;
+  const quotes = await getQuoteByID(id);
+  res.json(quotes);
+
+});
