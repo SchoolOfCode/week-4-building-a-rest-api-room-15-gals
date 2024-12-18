@@ -51,38 +51,3 @@ app.get("/quotes/:id", async function (req, res) {
 
 });
 
-//Ticket 5 - Create the POST route handler
-//Write a request handler to return the correct response 
-
-app.post("/quotes", async function (req, res) {
-try{
-  const quotes = await getQuotes();
-  res.status(200).json(quotes) //added the status code for best practice
-}
- catch(error) { 
-  res.status(500).json({message: "Error getting quotes"}); //added the status code and error code for best practice
-} 
-});
-//and perform the correct action when a POST request is received to /quotes. 
-//Choose the appropriate helper function from quote.js to create your data.
-
-//Ticket 6 - Create the PATCH route handler
-//Write a request handler to return the correct response 
-//and perform the correct action when a PATCH request is received to /quotes/:id. 
-//Choose the appropriate helper function from quote.js to update your data.
-
-//Listen for a PATCH request
-//When we receive the request we want to:
-//respond with the correct response
-//when a PATCH request is received to /quotes/:id
-//use json to receive response in json format
-
-app.patch("/quotes/:id", async function (req, res){
-  try
-  {const quotes = await getQuoteByID(id);
-    res.status(200).json(quotes)  // incomplete - unsure what went wrong
-  } 
-  catch(error){
-  res.status(500).json({mesaage: "Error updating quotes"})
-  }
-}); 
